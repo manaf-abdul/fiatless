@@ -4,7 +4,6 @@ import React, { Fragment, useState } from 'react'
 import { Button, Input, Loading, Text, Divider, Link, Image, Spacer } from '@nextui-org/react'
 import { Card } from '@nextui-org/react'
 import { useRouter } from 'next/router'
-import OtpInput from 'react-otp-input';
 
 import { LoginUserData } from '@/http/auth'
 import OTPInputGroup from '@/components/OtpInput'
