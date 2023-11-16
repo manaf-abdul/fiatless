@@ -18,8 +18,8 @@ const web3 = new Web3('https://polygon-mainnet.infura.io/v3/6c15b84543ac4f788e56
 
 
 export default async function handler(
-    req: NextApiRequest,
-    res: NextApiResponse
+    req,
+    res
 ) {
     if (req.method === 'POST') {
         try {
@@ -49,7 +49,7 @@ export default async function handler(
                     value: '0x00', // No ether transfer
                     data: data,
                 };
-                const privateKey: any = process.env.PRIVATE_KEY
+                const privateKey = process.env.PRIVATE_KEY
 
                 // Sign the transaction
                 const signedTx = await web3.eth.accounts.signTransaction(rawTx, privateKey);
@@ -70,7 +70,7 @@ export default async function handler(
             } else {
                 res.status(200).json({ data: "Transaction Error" });
             }
-        } catch (error: any) {
+        } catch (error) {
             console.log("error", error);
             res.status(410).json({ message: error?.message });
         }

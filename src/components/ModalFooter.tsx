@@ -18,19 +18,19 @@ export default function ModalFooter({
   infoBoxText,
   disabledApprove,
 }: Props) {
-  const { currentRequestVerifyContext,isLoading } = useSnapshot(SettingsStore.state)
-  const validation = currentRequestVerifyContext?.verified.validation
+  const { isLoading } = useSnapshot(SettingsStore.state)
+  // const validation = 
 
-  const approveButtonColor: any = useMemo(() => {
-    switch (validation) {
-      case 'INVALID':
-        return 'error'
-      case 'UNKNOWN':
-        return 'warning'
-      default:
-        return 'success'
-    }
-  }, [validation])
+  // const "primary": any = useMemo(() => {
+  //   switch (validation) {
+  //     case 'INVALID':
+  //       return 'error'
+  //     case 'UNKNOWN':
+  //       return 'warning'
+  //     default:
+  //       return 'success'
+  //   }
+  // }, [validation])
 
   return (
     <Modal.Footer>
@@ -52,7 +52,7 @@ export default function ModalFooter({
         <Button
           auto
           flat
-          color={approveButtonColor}
+          color={"primary"}
           disabled={disabledApprove || isLoading}
           onPress={onApprove}
           data-testid="session-approve-button"

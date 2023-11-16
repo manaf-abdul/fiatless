@@ -4,7 +4,7 @@ import { Button, Col, Divider, Input, Progress, Row, Spacer, Text, useInput } fr
 import React, { Fragment, useState } from 'react'
 import { useAccount } from 'wagmi'
 
-const sell = () => {
+const Sell = () => {
     const [step, setStep] = useState<Number>(0)
     const [showAddressInput, setShowAddressInput] = useState<Boolean>(false)
     const { address, isConnecting, isDisconnected } = useAccount()
@@ -89,4 +89,4 @@ const sell = () => {
     )
 }
 
-export default sell
+export default Sell
