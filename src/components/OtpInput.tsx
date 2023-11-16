@@ -142,7 +142,9 @@ const OTPInput = ({ id, previousId, nextId, value, onValueChange, handleSubmit }
             const next = document.getElementById(nextId);
             if (next) {
                 //select the next element
-                next.focus();
+                const inputElement = next as HTMLInputElement;
+                inputElement.setSelectionRange(inputElement.value.length, inputElement.value.length);
+                inputElement.focus();
             } else {
                 //check if inputGroup has autoSubmit enabled
                 const inputGroup = document.getElementById('OTPInputGroup');
