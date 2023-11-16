@@ -25,6 +25,8 @@ const Login = () => {
    
   }
 
+  let PIN=localStorage.getItem("PIN")
+  console.log("PIN",PIN)
   return (
     <Fragment>
       <PageHeader title="SignIn" />
@@ -44,6 +46,7 @@ const Login = () => {
             renderInput={(props) => <input {...props} />}
           /> */}
           <OTPInputGroup/>
+          {PIN ? "Create A Pin":"Enter PIN"}
           {/* <Button
             onClick={onSubmit}
             color="warning"

@@ -1,31 +1,33 @@
 import PageHeader from '@/components/PageHeader'
 import React, { Fragment, useState } from 'react'
-import { Spacer } from '@nextui-org/react'
+import { Spacer, Text } from '@nextui-org/react'
 import { Card } from '@nextui-org/react'
 import { useRouter } from 'next/router'
 import OTPInputGroup from '@/components/OtpInput'
 
 const SignUp = () => {
-  // const router = useRouter();
-  // const { register, handleSubmit } = useForm();
+    // const router = useRouter();
+    // const { register, handleSubmit } = useForm();
 
-  const router = useRouter()
+    const router = useRouter()
 
-  const onSubmit = async () => {
-    // TODO: Send the login data to your backend API
-   
-  }
+    const onSubmit = async () => {
+        // TODO: Send the login data to your backend API
 
-  return (
-    <Fragment>
-      <PageHeader title="Verify" auth={true}/>
+    }
+    let PIN = localStorage.getItem("PIN")
+    console.log("PIN", PIN)
 
-      <Spacer y={2.9} />
+    return (
+        <Fragment>
+            <PageHeader title="Verify" auth={true} />
 
-      <Card css={{ marginTop: '$12' }} bordered>
-        <Card.Body>
-          <Spacer y={1.6} />
-          {/* <OtpInput
+            <Spacer y={2.9} />
+
+            <Card css={{ marginTop: '$12' }} bordered>
+                <Card.Body>
+                    <Spacer y={1.6} />
+                    {/* <OtpInput
             inputStyle={{ width: "100%" }}
             containerStyle={{width:"50%"}}
             value={otp}
@@ -34,8 +36,17 @@ const SignUp = () => {
             renderSeparator={<span></span>}
             renderInput={(props) => <input {...props} />}
           /> */}
-          <OTPInputGroup/>
-          {/* <Button
+                    <OTPInputGroup />
+                    {!PIN ?
+                        <Text color='primary' css={{ alignText: "center" }}>
+                            Create A Pin
+                        </Text>
+                        :
+                        <Text color='primary' css={{ align: "center" }}>
+                            Enter PIN
+                        </Text>
+                    }
+                    {/* <Button
             onClick={onSubmit}
             color="warning"
             css={{ marginTop: '$10', width: '100%' }}
@@ -54,11 +65,11 @@ const SignUp = () => {
             )}
           </Button> */}
 
-          <Spacer y={0.8} />
-        </Card.Body>
-      </Card>
-    </Fragment>
-  )
+                    <Spacer y={0.8} />
+                </Card.Body>
+            </Card>
+        </Fragment>
+    )
 }
 
 export default SignUp
