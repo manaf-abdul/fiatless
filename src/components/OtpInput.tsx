@@ -122,6 +122,7 @@ const OTPInputGroup = () => {
 const OTPInput = ({ id, previousId, nextId, value, onValueChange, handleSubmit }: any) => {
     //This callback function only runs when a key is released
     const handleKeyUp = (e: any) => {
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.maxTouchPoints > 0;
         //check if key is backspace or arrowleft
         if (e.keyCode === 8 || e.keyCode === 37) {
             //find the previous element
@@ -134,7 +135,8 @@ const OTPInput = ({ id, previousId, nextId, value, onValueChange, handleSubmit }
             (e.keyCode >= 48 && e.keyCode <= 57) || //check if key is numeric keys 0 to 9
             (e.keyCode >= 65 && e.keyCode <= 90) || //check if key is alphabetical keys A to Z
             (e.keyCode >= 96 && e.keyCode <= 105) || //check if key is numeric keypad keys 0 to 9
-            e.keyCode === 39 //check if key is right arrow key
+            e.keyCode === 39 ||//check if key is right arrow key
+            (isTouchDevice && (e.type === 'touchend' || e.type === 'touchstart'))
         ) {
             //find the next element
             const next = document.getElementById(nextId);
