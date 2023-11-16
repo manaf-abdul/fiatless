@@ -2,6 +2,7 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import SettingsStore from "@/store/SettingsStore";
+import { Button, Text } from "@nextui-org/react";
 // import "from './otpInput.css'; //remove this line if you are using react
 
 //Our parent component
@@ -10,6 +11,7 @@ const OTPInputGroup = () => {
     console.log(router)
 
     let PIN = window.localStorage.getItem("PIN")
+    console.log({ PIN })
     //state to store all input boxes    
     const [inputValues, setInputValues] = useState({
         input1: '',
@@ -103,6 +105,15 @@ const OTPInputGroup = () => {
                     handleSubmit={handleSubmit}
                 />
             </div>
+            {!PIN ?
+                <Button disabled={!inputValues.input6} color='primary' css={{ width: "100%" }} onClick={handleSubmit}>
+                    Create A Pin Create
+                </Button>
+                :
+                <Button disabled={!inputValues.input6} color='primary' css={{ width: "100%" }} onClick={handleSubmit}>
+                    Enter PIN & Verify
+                </Button>
+            }
         </>
     );
 }

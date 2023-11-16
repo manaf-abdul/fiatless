@@ -38,7 +38,7 @@ const SignUp = () => {
             renderInput={(props) => <input {...props} />}
           /> */}
                     <OTPInputGroup />
-                    {!PIN ?
+                    {/* {!PIN ?
                         <Text color='primary' css={{ alignText: "center" }}>
                             Create A Pin
                         </Text>
@@ -46,7 +46,7 @@ const SignUp = () => {
                         <Text color='primary' css={{ align: "center" }}>
                             Enter PIN
                         </Text>
-                    }
+                    } */}
                     {/* <Button
             onClick={onSubmit}
             color="warning"
