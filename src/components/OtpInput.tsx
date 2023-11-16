@@ -4,11 +4,12 @@ import React, { useState } from "react";
 import SettingsStore from "@/store/SettingsStore";
 // import "from './otpInput.css'; //remove this line if you are using react
 
-let PIN=localStorage.getItem("PIN")
 //Our parent component
 const OTPInputGroup = () => {
-    const router=useRouter()
+    const router = useRouter()
     console.log(router)
+
+    let PIN = window.localStorage.getItem("PIN")
     //state to store all input boxes    
     const [inputValues, setInputValues] = useState({
         input1: '',
@@ -31,19 +32,19 @@ const OTPInputGroup = () => {
         // ... Your submit logic here
         const concatenatedNumber = Object.values(inputValues).join('');
         const resultNumber = parseInt(concatenatedNumber, 10);
-        if(!PIN){
-            window.localStorage.setItem("PIN",String(resultNumber))
+        if (!PIN) {
+            window.localStorage.setItem("PIN", String(resultNumber))
             SettingsStore.setAuth(true)
             router.push('/buy')
         } else {
-            if(PIN===String(resultNumber)){
+            if (PIN === String(resultNumber)) {
                 SettingsStore.setAuth(true)
                 router.push('/buy')
-            } else{
+            } else {
                 console.log("incorrect PIN")
             }
         }
-        
+
 
         console.log("Concatenated Number:", resultNumber);
 
