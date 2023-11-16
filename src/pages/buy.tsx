@@ -19,24 +19,18 @@ const Buy = () => {
     return regex.test(value);
   };
 
-  // const validateAmount = (value: any) => {
-  //   console.log(typeof value,"pp")
-  //   const data= parseInt(value) > 100;
-  //   console.log("data",data)
-  //   return
-  // };
   const validateAmount = (value: string | number): boolean => {
     if (typeof value === "string") {
-        const parsedValue = parseInt(value);
-        console.log(parsedValue > 100)
-        return parsedValue > 100;
+      const parsedValue = parseInt(value);
+      console.log(parsedValue > 100)
+      return parsedValue > 100;
     } else if (typeof value === "number") {
       console.log(value > 100)
-        return value > 100;
+      return value > 100;
     } else {
-        return false;
+      return false;
     }
-};
+  };
 
   const [showAddressInput, setShowAddressInput] = useState<Boolean>(false)
   const [clientSecret, setClientSecret] = useState("pi_3NyVtHIB3FTgGfl10R9Xwnf3_secret_lWgrpbDDt0JeF95efv8zV0W08");
@@ -45,7 +39,7 @@ const Buy = () => {
   const [stripePromise, setStripePromise] = useState<any>(null);
   const [loading, setLoading] = useState<Boolean>(false);
   const [userAddress, setUserAddress] = useState('');
-  const [amount, setAmount] = useState<any>();
+  const [amount, setAmount] = useState<any>(100);
 
   async function loadData() {
     setLoading(true)
@@ -57,14 +51,10 @@ const Buy = () => {
 
   const [addres, setAddres] = useState<String | undefined>(address ?? "")
 
-  // useEffect(() => {
-  //   loadData()
-  // }, [])
-
-  const stepHandler = async (e: number,custom?:any) => {
+  const stepHandler = async (e: number, custom?: any) => {
     if (e === 2) {
       // setAddres(address)
-      if(custom){
+      if (custom) {
         setAddres(userAddress)
       } else {
         setAddres(address)
@@ -74,7 +64,7 @@ const Buy = () => {
     if (e === 0) {
       setStep(0)
     }
-    
+
     setStep(e)
   }
 
@@ -95,12 +85,12 @@ const Buy = () => {
             type='number'
             min={100}
             value={amount}
-            onChange={(e)=>setAmount(e.target.value)}
+            onChange={(e) => setAmount(e.target.value)}
             labelPlaceholder="Amount"
-            color="primary" 
+            color="primary"
             helperColor={validateAmount(amount) ? "success" : "error"}
-            helperText={validateAmount(amount) ? "Valid" : "Amount should be greater than 100"}
-            />
+            helperText={validateAmount(amount) ? "" : "Amount should be greater than 100"}
+          />
         </Col>
         <Spacer x={0.5} />
         <Col span={2}>
@@ -127,8 +117,8 @@ const Buy = () => {
         </Row>
         <Spacer y={1.8} />
         <Button color="primary"
-        disabled={!validateAmount(amount)}
-        css={{ width: "100%" }} onClick={() => stepHandler(1)}>
+          disabled={!validateAmount(amount)}
+          css={{ width: "100%" }} onClick={() => stepHandler(1)}>
           PROCEED
         </Button>
       </>
@@ -143,10 +133,10 @@ const Buy = () => {
           </Col>
         </Row>
         <Spacer y={1} />
-      
+
         <Row>
-          <Col span={12} css={{display:'flex',flexDirection:"column",justifyContent:"center"}}>
-          {/* <Col span={12}
+          <Col span={12} css={{ display: 'flex', flexDirection: "column", justifyContent: "center" }}>
+            {/* <Col span={12}
             style={{
               display: "flex",
               flexDirection:"row",
@@ -154,39 +144,39 @@ const Buy = () => {
             }}
           > */}
             {!address && <WalletConnectButton size="lg" />}
-          {/* </Col> */}
-          {address &&
-            <Button color='primary' style={{ width: "100%" }} onClick={() => stepHandler(2)}>
-              Proceed with Connected Wallet
-            </Button>
-          }
-          <Text style={{ textAlign: "center" }}>OR</Text>
-          <Button color='primary' style={{ width: "100&" }} onClick={() => setShowAddressInput(!showAddressInput)}>
-            Enter a wallet address
-          </Button>
-          {showAddressInput &&
-            <>
-              <Spacer y={1.6} />
-              <Input
-                {...bindings}
-                css={{ width: "100%" }}
-                bordered
-                value={userAddress}
-                onChange={(e)=>setUserAddress(e.target.value)}
-                labelPlaceholder="Enter your address"
-                color="primary"
-                helperColor={validateEthereumAddress(userAddress) ? "success" : "error"}
-                helperText={validateEthereumAddress(userAddress) ? "Correct Ethereum address" : "Enter a valid Ethereum address"}
-
-              />
-              <Spacer y={1.6} />
-              <Button color='primary'
-              disabled={!validateEthereumAddress(userAddress)}
-              style={{ width: "100&" }} onClick={() => stepHandler(2,true)}>
-                Proceed
+            {/* </Col> */}
+            {address &&
+              <Button color='primary' style={{ width: "100%" }} onClick={() => stepHandler(2)}>
+                Proceed with Connected Wallet
               </Button>
-            </>
-          }
+            }
+            <Text style={{ textAlign: "center" }}>OR</Text>
+            <Button color='primary' style={{ width: "100&" }} onClick={() => setShowAddressInput(!showAddressInput)}>
+              Enter a wallet address
+            </Button>
+            {showAddressInput &&
+              <>
+                <Spacer y={1.6} />
+                <Input
+                  {...bindings}
+                  css={{ width: "100%" }}
+                  bordered
+                  value={userAddress}
+                  onChange={(e) => setUserAddress(e.target.value)}
+                  labelPlaceholder="Enter your address"
+                  color="primary"
+                  helperColor={validateEthereumAddress(userAddress) ? "success" : "error"}
+                  helperText={validateEthereumAddress(userAddress) ? "Correct Ethereum address" : "Enter a valid Ethereum address"}
+
+                />
+                <Spacer y={1.6} />
+                <Button color='primary'
+                  disabled={!validateEthereumAddress(userAddress)}
+                  style={{ width: "100&" }} onClick={() => stepHandler(2, true)}>
+                  Proceed
+                </Button>
+              </>
+            }
           </Col>
         </Row>
         <Spacer y={1} />
@@ -208,14 +198,13 @@ const Buy = () => {
         <Spacer y={1} />
         <Row>
           <Col span={12} >
-            {clientSecret && stripePromise && (
+            {stripePromise && (
               <Elements stripe={stripePromise}>
-                <CheckoutForm 
-                clientSecret={clientSecret} 
-                value={amount} 
-                currency={'USD'} 
-                setStep={() => setStep(3)}
-                toAddres={addres}
+                <CheckoutForm
+                  value={amount}
+                  currency={'USD'}
+                  setStep={() => setStep(3)}
+                  toAddres={addres}
                 />
               </Elements>
             )}

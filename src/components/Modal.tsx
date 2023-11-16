@@ -2,6 +2,7 @@ import ModalStore from '@/store/ModalStore'
 import { Modal as NextModal } from '@nextui-org/react'
 import { useSnapshot } from 'valtio'
 import { useCallback } from 'react'
+import AuthModal from './AuthModal'
 
 export default function Modal() {
   const { open, view } = useSnapshot(ModalStore.state)
@@ -19,6 +20,7 @@ export default function Modal() {
       open={open}
       style={{ border: '1px solid rgba(139, 139, 139, 0.4)' }}
     >
+      {view === "AuthModal" && <AuthModal />}
     </NextModal>
   )
 }

@@ -11,12 +11,13 @@ import WalletConnectButton from './WalletConnectButton';
 interface Props {
   children?: ReactNode | ReactNode[]
   title: string
+  auth?:boolean
 }
 
 /**
  * Component
  */
-export default function PageHeader({ title, children }: Props) {
+export default function PageHeader({ title, children,auth }: Props) {
   // const { account } = useSnapshot(SettingsStore.state)
   const { address, isConnecting, isDisconnected } = useAccount()
   // const { chain } = getNetwork();
@@ -42,9 +43,9 @@ export default function PageHeader({ title, children }: Props) {
             {title}
           </Text>
         </Col>
-        <Col span={2} css={{ flex: 1 }}>
+       {!auth && <Col span={2} css={{ flex: 1 }}>
             <WalletConnectButton size="xs"/>
-        </Col>
+        </Col>}
       </Row>
       <Divider css={{ marginBottom: '$10' }} />
     </Fragment>

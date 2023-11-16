@@ -6,8 +6,9 @@ import { proxy } from 'valtio'
  */
 interface State {
   account: number
-  isLoading?:boolean
-  chain:any | undefined | boolean
+  isLoading?: boolean
+  chain: any | undefined | boolean
+  isAuth: boolean
 }
 
 /**
@@ -15,8 +16,9 @@ interface State {
  */
 const state = proxy<State>({
   account: 0,
-  isLoading:false,
-  chain:{} 
+  isLoading: false,
+  chain: {},
+  isAuth: false
 })
 
 /**
@@ -32,6 +34,10 @@ const SettingsStore = {
 
   setChain(value: boolean) {
     state.chain = value
+  },
+
+  setAuth(value: boolean) {
+    state.isAuth = value
   },
 }
 

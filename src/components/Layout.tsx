@@ -63,22 +63,6 @@ export default function Layout({ children, initialized = true }: Props) {
           {initialized ? (
             <Fragment>
               <RouteTransition>
-                {/* <Card.Header
-                css={{
-                  height: '67px',
-                  minHeight: '67px',
-                  position: 'sticky',
-                  justifyContent: 'flex-end',
-                  alignItems: 'flex-end',
-                  // boxShadow: '0 -20px 10px #111111',
-                  // backgroundColor: '#0070f0',
-                  zIndex: 200,
-                  bottom: 0,
-                  left: 0
-                }}
-              >
-                {noNav.includes(asPath) ? <></> : <Navigation />}
-              </Card.Header> */}
                 <Card.Body
                   css={{
                     display: 'block',

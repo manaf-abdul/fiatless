@@ -4,31 +4,11 @@ import { proxy } from 'valtio'
 /**
  * Types
  */
-interface ModalData {
-  proposal?: SignClientTypes.EventArguments['session_proposal']
-  requestEvent?: SignClientTypes.EventArguments['session_request']
-  requestSession?: SessionTypes.Struct
-  // request?: Web3WalletTypes.AuthRequest
-}
 
 interface State {
   open: boolean
   view?:
-    | 'SessionProposalModal'
-    | 'SessionSignModal'
-    | 'SessionSignTypedDataModal'
-    | 'SessionSendTransactionModal'
-    | 'SessionUnsuportedMethodModal'
-    | 'SessionSignCosmosModal'
-    | 'SessionSignSolanaModal'
-    | 'SessionSignPolkadotModal'
-    | 'SessionSignNearModal'
-    // | 'SessionSignMultiversxModal'
-    | 'SessionSignTronModal'
-    | 'SessionSignTezosModal'
-    | 'SessionSignKadenaModal'
-    | 'AuthRequestModal'
-  data?: ModalData
+    | 'AuthModal'
 }
 
 /**
@@ -44,9 +24,8 @@ const state = proxy<State>({
 const ModalStore = {
   state,
 
-  open(view: State['view'], data: State['data']) {
+  open(view: State['view'], ) {
     state.view = view
-    state.data = data
     state.open = true
   },
 

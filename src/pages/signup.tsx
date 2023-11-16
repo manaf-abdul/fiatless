@@ -1,22 +1,13 @@
 import PageHeader from '@/components/PageHeader'
-import PersonIcon from '@mui/icons-material/Person'
 import React, { Fragment, useState } from 'react'
-import { Button, Input, Loading, Text, Divider, Link, Image, Spacer } from '@nextui-org/react'
+import { Spacer } from '@nextui-org/react'
 import { Card } from '@nextui-org/react'
 import { useRouter } from 'next/router'
-import OtpInput from 'react-otp-input';
-
-import { LoginUserData } from '@/http/auth'
 import OTPInputGroup from '@/components/OtpInput'
 
-const Login = () => {
+const SignUp = () => {
   // const router = useRouter();
   // const { register, handleSubmit } = useForm();
-  const [loadingData, setLoading] = useState(false)
-  const [UserName, SetUserName] = useState('')
-  const [Password, setPassword] = useState('')
-  const [Err, setErr] = useState(String)
-  const [otp, setOtp] = useState('');
 
   const router = useRouter()
 
@@ -27,7 +18,7 @@ const Login = () => {
 
   return (
     <Fragment>
-      <PageHeader title="SignIn" />
+      <PageHeader title="Verify" auth={true}/>
 
       <Spacer y={2.9} />
 
@@ -70,4 +61,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default SignUp

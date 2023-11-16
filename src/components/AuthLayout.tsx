@@ -1,18 +1,24 @@
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
+import ModalStore from '@/store/ModalStore';
+import { useSnapshot } from 'valtio';
+import SettingsStore from '@/store/SettingsStore';
 
 const AuthLayout = ({ children }: any) => {
+
+  const { isAuth } = useSnapshot(SettingsStore.state)
     const router = useRouter();
 
     useEffect(() => {
-        const isAuthenticated = localStorage.getItem('access_token') !== null;
+        const isPinSet = localStorage.getItem('PIN');
+        console.log({isPinSet})
 
-        if (!isAuthenticated && router.pathname !== '/login') {
-            router.push('/login');
+        if (!isPinSet) {
+            router.push('/signup');
         } 
-        // else {
-        //     if(router.pathname==='/login') router.push('/')
-        // }
+        if(!isAuth){
+            router.push("/signup")
+        }
     }, []);
 
     return children;
