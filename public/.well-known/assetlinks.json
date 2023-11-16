@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.owpc.wallet",
+      "sha256_cert_fingerprints": [
+        "5E:5C:1C:3A:22:52:13:2F:DE:AD:40:DC:94:41:21:1B:AA:70:2E:C0:B5:DD:81:5B:83:1F:CA:25:F5:5A:BB:9A"
+      ]
+    }
+  }
+]
