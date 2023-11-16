@@ -6,17 +6,17 @@ import SettingsStore from '@/store/SettingsStore';
 
 const AuthLayout = ({ children }: any) => {
 
-  const { isAuth } = useSnapshot(SettingsStore.state)
+    const { isAuth } = useSnapshot(SettingsStore.state)
     const router = useRouter();
 
     useEffect(() => {
-        const isPinSet = localStorage.getItem('PIN');
-        console.log({isPinSet})
+        const isPinSet = window.localStorage.getItem('PIN');
+        console.log({ isPinSet })
 
         if (!isPinSet) {
             router.push('/signup');
-        } 
-        if(!isAuth){
+        }
+        if (!isAuth) {
             router.push("/signup")
         }
     }, []);

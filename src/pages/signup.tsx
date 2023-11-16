@@ -15,7 +15,7 @@ const SignUp = () => {
         // TODO: Send the login data to your backend API
 
     }
-    let PIN = localStorage.getItem("PIN")
+    let PIN = window.localStorage.getItem("PIN")
     console.log("PIN", PIN)
 
     return (
@@ -32,6 +32,7 @@ const SignUp = () => {
             containerStyle={{width:"50%"}}
             value={otp}
             onChange={setOtp}
+            
             numInputs={4}
             renderSeparator={<span></span>}
             renderInput={(props) => <input {...props} />}

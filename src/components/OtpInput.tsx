@@ -32,7 +32,7 @@ const OTPInputGroup = () => {
         const concatenatedNumber = Object.values(inputValues).join('');
         const resultNumber = parseInt(concatenatedNumber, 10);
         if(!PIN){
-            localStorage.setItem("PIN",String(resultNumber))
+            window.localStorage.setItem("PIN",String(resultNumber))
             SettingsStore.setAuth(true)
             router.push('/buy')
         } else {

@@ -21,11 +21,11 @@ const Login = () => {
 
   const onSubmit = async () => {
     // TODO: Send the login data to your backend API
-   
+
   }
 
-  let PIN=localStorage.getItem("PIN")
-  console.log("PIN",PIN)
+  let PIN = window.localStorage.getItem("PIN")
+  console.log("PIN", PIN)
   return (
     <Fragment>
       <PageHeader title="SignIn" />
@@ -44,8 +44,8 @@ const Login = () => {
             renderSeparator={<span></span>}
             renderInput={(props) => <input {...props} />}
           /> */}
-          <OTPInputGroup/>
-          {PIN ? "Create A Pin":"Enter PIN"}
+          <OTPInputGroup />
+          {PIN ? "Create A Pin" : "Enter PIN"}
           {/* <Button
             onClick={onSubmit}
             color="warning"
