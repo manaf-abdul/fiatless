@@ -19,56 +19,6 @@ export default function SettingsPage() {
   return (
     <Fragment>
       <PageHeader title="settings" />
-      <Link href='/networks' passHref>
-        <div>
-          <Text h4 css={{ marginBottom: '$5' }}>
-            Networks
-          </Text>
-          <Row justify="space-between" align="center">
-            <Text color="$gray400"><SettingsInputAntennaIcon/>Available networks</Text>
-            <Text color="$gray400"><ArrowForwardIosIcon sx={{ color: COLOR.yellow }} /></Text>
-          </Row>
-        </div>
-      </Link>
-      <Divider y={2} />
-
-      <Link href='/security' passHref>
-        <div>
-          <Text h4 css={{ marginBottom: '$5' }}>
-            Security
-          </Text>
-          <Row justify="space-between" align="center">
-            <Text color="$gray400"><SecurityIcon/>Accounts,Mnemonics</Text>
-            <Text color="$gray400"><ArrowForwardIosIcon sx={{ color: COLOR.yellow }} /></Text>
-
-          </Row>
-        </div>
-      </Link>
-      {/* <Divider y={2} />
-      <Text h4 css={{ marginBottom: '$5' }}>
-        Testnets
-      </Text>
-      <Row justify="space-between" align="center">
-        <Switch
-          checked={testNets}
-          onChange={SettingsStore.toggleTestNets}
-          data-testid="settings-toggle-testnets"
-        />
-        <Text>{testNets ? 'Enabled' : 'Disabled'}</Text>
-      </Row> */}
-
-      {/* <Divider y={2} />
-
-      <Row justify="space-between" align="center">
-        <Text h4 css={{ marginBottom: '$5' }}>
-          Relayer Region
-        </Text>
-        <RelayRegionPicker />
-      </Row> */}
-
-      <Divider y={2} />
-
-
       <Link href='/about-us' passHref>
         <div>
           <Text h4 css={{ marginBottom: '$5' }}>
@@ -83,21 +33,6 @@ export default function SettingsPage() {
         </div>
       </Link>
       <Divider y={2} />
-
-      <Row onClick={() => {
-        localStorage.removeItem("refresh_token")
-        localStorage.removeItem("access_token")
-        router.push('/login')
-
-      }} justify="space-between" align="center">
-        <Text h4 css={{ marginBottom: '$5', color: "Red" }}>
-          Logout {" "}
-          {/* <LogoutIcon/> */}
-        </Text>
-        {/* <RelayRegionPicker /> */}
-      </Row>
-
-
     </Fragment>
   )
 }
