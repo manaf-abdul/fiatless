@@ -9,10 +9,13 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useAccount } from 'wagmi';
 import WalletConnectButton from '@/components/WalletConnectButton';
+import { Typography } from '@mui/material';
 
 const Buy = () => {
   const { value, reset, bindings } = useInput("");
   const { address, isConnecting, isDisconnected } = useAccount()
+  const [hash, setHash] = useState(null);
+  console.log({ hash })
 
   const validateEthereumAddress = (value: string) => {
     const regex = /^(0x)?[0-9a-fA-F]{40}$/;
@@ -205,6 +208,7 @@ const Buy = () => {
                   currency={'USD'}
                   setStep={() => setStep(3)}
                   toAddres={addres}
+                  setHash={setHash}
                 />
               </Elements>
             )}
@@ -223,6 +227,15 @@ const Buy = () => {
         </Row>
         <Spacer y={1} />
         {/* <Col span={12}  css={{display:"flex",flexDirection:"column",justifyContent:"center"}}> */}
+        {hash ?
+          <Row>
+            <Typography
+              noWrap
+            >
+              {hash}
+            </Typography>
+          </Row>
+          : ""}
         <CheckCircleIcon sx={{ fontSize: "10rem", width: "100%" }} color='success' />
         <Button color="success" css={{ width: "100%" }} onClick={() => stepHandler(0)}>
           Go Back

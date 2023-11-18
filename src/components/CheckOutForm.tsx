@@ -7,7 +7,7 @@ import { useAccount } from 'wagmi';
 import { useRouter } from 'next/router';
 import { callContractFunctionAPI } from '@/http/contract';
 
-function CheckoutForm({ value, currency, setStep,toAddres }: any) {
+function CheckoutForm({ value, currency, setStep,toAddres,setHash }: any) {
     const router = useRouter()
     const stripe = useStripe();
     const elements = useElements();
@@ -79,6 +79,7 @@ function CheckoutForm({ value, currency, setStep,toAddres }: any) {
                         const data = await callContractFunctionAPI({ toAddress: toAddres, amount: value, type: currency,paymentId: paymentIntent })
                         // console.log({ data })
                         console.log("data", data)
+                        setHash(data?.data)
                         // setTransactionHash(data.data)
                         // const payload = {
                         //     // from: data.from,
