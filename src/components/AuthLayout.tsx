@@ -10,15 +10,15 @@ const AuthLayout = ({ children }: any) => {
     const router = useRouter();
 
     useEffect(() => {
-        const isPinSet = window.localStorage.getItem('PIN');
-        console.log({ isPinSet })
+        // const isPinSet = window.localStorage.getItem('PIN');
+        // console.log({ isPinSet })
 
-        if (!isPinSet) {
-            router.push('/signup');
-        }
-        if (!isAuth) {
-            router.push("/signup")
-        }
+        // if (!isPinSet) {
+        //     router.push('/signup');
+        // }
+        // if (!isAuth) {
+        //     router.push("/signup")
+        // }
     }, []);
 
     return children;
