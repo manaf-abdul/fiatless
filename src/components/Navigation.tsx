@@ -3,8 +3,6 @@ import { DollarTwoTone, DownCircleTwoTone } from '@ant-design/icons'
 import { Avatar, Row } from '@nextui-org/react'
 import Image from 'next/image'
 import Link from 'next/link'
-// import DownloadIcon from '@mui/icons-material/Download';
-// import FileUploadIcon from '@mui/icons-material/FileUpload';
 
 export default function Navigation() {
   return (
