@@ -161,3 +161,136 @@ i {
       font-size: 25px !important;
   }
 }
+/* ////////inputs */
+
+
+.inputs {
+	position: relative;
+}
+
+.assetOne {
+	position: absolute;
+	min-width: 50px;
+	height: 30px;
+	background-color: #b7b7b7;
+	top: 36px;
+	right: 20px;
+	border-radius: 100px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 5px;
+	font-weight: bold;
+	font-size: 17px;
+	padding-right: 8px;
+}
+
+.assetTwo {
+	position: absolute;
+	min-width: 50px;
+	height: 30px;
+	background-color: #b7b7b7;
+	top: 135px;
+	right: 20px;
+	border-radius: 100px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 5px;
+	font-weight: bold;
+	font-size: 17px;
+	padding-right: 8px;
+}
+
+.assetOne:hover {
+	cursor: pointer;
+}
+
+.assetTwo:hover {
+	cursor: pointer;
+}
+
+.assetLogo {
+	height: 22px;
+	margin-left: 5px;
+}
+
+/* ////modal */
+.tokenLogo {
+	height: 40px;
+	width: 40px;
+}
+
+.modalContent {
+	border-top: 1px solid #363e54;
+	/* padding-top: 20px; */
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px
+}
+
+.tokenChoice {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.tokenChoice:hover {
+	cursor: pointer;
+	background-color: #1f2639;
+}
+
+.tokenName {
+	margin-left: 10px;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.tokenTicker {
+	margin-left: 10px;
+	font-size: 13px;
+	font-weight: 300;
+	color: #51596f;
+} 
+
+.switchButton {
+	background-color: #3a4157;
+	width: 25px;
+	height: 25px;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	border-radius: 8px;
+	position: absolute;
+	top: 86px;
+	left: 180px;
+	color: #5F6783;
+	border: 3px solid #0E111B;
+	font-size: 12px;
+	transition: 0.3s
+}
+
+.dollarAmount {
+	position: absolute;
+	top: 75px;
+	left: 14px;
+	font-size: 10px;
+	color: #5F6783;
+}
+
+.switchButton:hover {
+	color: white;
+	cursor: pointer;
+}
+
+input[type="number"] {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  overflow: -webkit-box;
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  scrollbar-width: none; /* Hide horizontal scrollbar */
+}

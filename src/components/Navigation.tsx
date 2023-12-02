@@ -1,9 +1,10 @@
 import { COLOR } from '@/constants/style'
+import { DollarTwoTone, DownCircleTwoTone } from '@ant-design/icons'
 import { Avatar, Row } from '@nextui-org/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import DownloadIcon from '@mui/icons-material/Download';
-import FileUploadIcon from '@mui/icons-material/FileUpload';
+// import DownloadIcon from '@mui/icons-material/Download';
+// import FileUploadIcon from '@mui/icons-material/FileUpload';
 
 export default function Navigation() {
   return (
@@ -17,13 +18,13 @@ export default function Navigation() {
 
       <Link href="/buy" passHref>
         <a className="navLink" data-testid="pairings">
-          <DownloadIcon />
+          <DollarTwoTone rev={""} style={{fontSize:"2.2rem",paddingBottom:"0.2rem"}}/>
         </a>
       </Link>
 
       <Link href="/sell" passHref>
         <a className="navLink" data-testid="wc-connect">
-          <FileUploadIcon />
+        <DownCircleTwoTone rev={""} style={{fontSize:"2.2rem",paddingBottom:"0.2rem"}}/>
         </a>
       </Link>
 

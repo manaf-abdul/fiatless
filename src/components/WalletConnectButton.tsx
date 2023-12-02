@@ -1,3 +1,4 @@
+import { truncate } from '@/utils/helper'
 import { Button, Text } from '@nextui-org/react'
 import { useWeb3Modal } from '@web3modal/wagmi/react'
 import React, { Fragment } from 'react'
@@ -9,7 +10,7 @@ const WalletConnectButton = ({size}:any) => {
   return (
     <Fragment>
         <Button color='primary' size={size} onClick={() => open()}>
-            {address ? address : "Connect Wallet"}
+            {address ? truncate(address,13): "Connect Wallet"}
           </Button>
     </Fragment>
   )
