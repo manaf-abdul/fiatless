@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useAccount } from 'wagmi';
 import { useRouter } from 'next/router';
 import { callContractFunctionAPI } from '@/http/contract';
+import { Button } from '@nextui-org/react';
 
 function CheckoutForm({ value, currency, setStep,toAddres,setHash }: any) {
     const router = useRouter()
@@ -151,20 +152,21 @@ function CheckoutForm({ value, currency, setStep,toAddres,setHash }: any) {
                 </label>
             </div>
             {paymentError && <div className="error">{paymentError}</div>}
-            <button
+            <Button
                 type="submit"
                 disabled={!stripe || loading}
                 style={{
                     width: "100%",
                     height: "2rem",
-                    background: "#0070f0",
+                    // background: "#0070f0",
                     border: "none",
                     borderRadius: "8px",
-                    color: "white"
+                    // color: "white"
                 }}
+                color='gradient'
             >
                 {loading ? 'Processing...' : 'Pay Now'}
-            </button>
+            </Button>
         </form>
     );
 }

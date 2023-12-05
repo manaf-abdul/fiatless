@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
   // Step 1 - Initialize wallets and wallet connect client
   const initialized=true
   return (
-    <NextUIProvider theme={createTheme({ type: 'light' })}>
+    <NextUIProvider theme={createTheme({ type: 'dark' })}>
       <Layout initialized={initialized}>
         <Toaster />
         <AuthLayout>

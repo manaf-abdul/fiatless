@@ -221,6 +221,10 @@ i {
 	width: 40px;
 }
 
+.modalList{
+  background: black;
+}
+
 .modalContent {
 	border-top: 1px solid #363e54;
 	/* padding-top: 20px; */

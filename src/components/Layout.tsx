@@ -87,7 +87,7 @@ export default function Layout({ children, initialized = true }: Props) {
                   justifyContent: 'flex-end',
                   alignItems: 'flex-end',
                   // boxShadow: '0 -20px 10px #111111',
-                  backgroundColor: 'LightGray',
+                  backgroundColor: '#111111',
                   zIndex: 100,
                   bottom: 0,
                   left: 0

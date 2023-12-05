@@ -35,8 +35,8 @@ export default function PageHeader({ title, children,auth }: Props) {
             h3
             weight="bold"
             css={{
-              // textGradient: '90deg, $secondary, $primary 30%'
-              color: "#0070f0"
+              textGradient: '90deg, $secondary, $primary 30%'
+              // color: "#0070f0"
               // color:COLOR.yellow
             }}
           >

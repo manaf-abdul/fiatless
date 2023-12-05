@@ -16,13 +16,15 @@ export default function Navigation() {
 
       <Link href="/buy" passHref>
         <a className="navLink" data-testid="pairings">
-          <DollarTwoTone rev={""} style={{fontSize:"2.2rem",paddingBottom:"0.2rem"}}/>
+          {/* <DollarTwoTone rev={""} style={{fontSize:"2.2rem",paddingBottom:"0.2rem"}} twoToneColor="#bb58d9"/> */}
+          <Image alt="accounts icon" src="/icons/buy.svg" width={34} height={34} />
         </a>
       </Link>
 
       <Link href="/sell" passHref>
         <a className="navLink" data-testid="wc-connect">
-        <DownCircleTwoTone rev={""} style={{fontSize:"2.2rem",paddingBottom:"0.2rem"}}/>
+        {/* <DownCircleTwoTone rev={""} style={{fontSize:"2.2rem",paddingBottom:"0.2rem"}} twoToneColor={"primary"}/> */}
+        <Image alt="accounts icon" src="/icons/sell.svg" width={34} height={34} />
         </a>
       </Link>
 

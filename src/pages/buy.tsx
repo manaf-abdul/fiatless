@@ -113,7 +113,7 @@ const Buy = () => {
     <Fragment>
       <PageHeader title="Buy" />
       <Progress
-        color={step === 3 ? "success" : "primary"}
+        color={step === 3 ? "success" : "gradient"}
         value={step === 0 ? 0 : step === 1 ? 30 : step === 2 ? 60 : 100}
         size="xs"
       />
@@ -123,6 +123,8 @@ const Buy = () => {
         footer={null}
         onCancel={() => setIsOpen(false)}
         title="Select a token"
+        // className='modalList'
+        style={{background:"black"}}
         centered
       >
         
@@ -154,12 +156,12 @@ const Buy = () => {
               placeholder="0"
               value={amount}
               onChange={amountHandler}
-              style={{ height: "6rem", fontSize: "xx-large" }}
+              style={{ height: "6rem", fontSize: "xx-large",color:"white",background:"black" }}
             />
             <CustomInput placeholder="0"
               value={Number(amount)+(Number(amount)*3/100)} 
               disabled={true}
-              style={{ height: "6rem", color: "black", fontSize: "xx-large" }}
+              style={{ height: "6rem", color: "white", fontSize: "xx-large",background:"#11151d" }}
             />
             <div className="switchButton"
             >
@@ -179,8 +181,9 @@ const Buy = () => {
         </Col>
       </Row>
         <Spacer y={1.8} />
-        <Button color="primary"
+        <Button 
           disabled={!validateAmount(amount)}
+          color="gradient"
           css={{ width: "100%" }} onClick={() => stepHandler(1)}>
           PROCEED
         </Button>
@@ -189,7 +192,7 @@ const Buy = () => {
       {step === 1 && <>
         <Row>
           <Col span={1} onClick={() => setStep(0)}>
-            <ArrowLeftOutlined rev={""} style={{color:"blue"}}/>
+            <ArrowLeftOutlined rev={""} style={{color:"#ba59d9"}}/>
           </Col>
           <Col css={{ display: "flex", justifyContent: "center" }} span={11}>
             <Text h4 color="primary">Details</Text>
@@ -201,12 +204,12 @@ const Buy = () => {
           <Col span={12} css={{ display: 'flex', flexDirection: "column", justifyContent: "center" }}>
             {!address && <WalletConnectButton size="lg" />}
             {address &&
-              <Button color='primary' style={{ width: "100%" }} onClick={() => stepHandler(2)}>
+              <Button color='gradient' style={{ width: "100%",color:"white" }} onClick={() => stepHandler(2)}>
                 Proceed with Connected Wallet
               </Button>
             }
             <Text style={{ textAlign: "center" }}>OR</Text>
-            <Button color='primary' style={{ width: "100&" }} onClick={() => setShowAddressInput(!showAddressInput)}>
+            <Button color='gradient' style={{ width: "100&" }} onClick={() => setShowAddressInput(!showAddressInput)}>
               Enter a wallet address
             </Button>
             {showAddressInput &&
@@ -225,7 +228,7 @@ const Buy = () => {
 
                 />
                 <Spacer y={1.6} />
-                <Button color='primary'
+                <Button color='gradient'
                   disabled={!validateEthereumAddress(userAddress)}
                   style={{ width: "100&" }} onClick={() => stepHandler(2, true)}>
                   Proceed
@@ -244,10 +247,10 @@ const Buy = () => {
       {step === 2 && <>
         <Row>
           <Col span={1} onClick={() => setStep(1)}>
-            <ArrowLeftOutlined rev={""} style={{color:"blue"}}/>
+            <ArrowLeftOutlined rev={""} style={{color:"#ba59d9"}}/>
           </Col>
           <Col css={{ display: "flex", justifyContent: "center" }} span={11}>
-            <Text h4 color="primary">PAYMENT</Text>
+            <Text h4 color="gradient">PAYMENT</Text>
           </Col>
         </Row>
         <Spacer y={1} />

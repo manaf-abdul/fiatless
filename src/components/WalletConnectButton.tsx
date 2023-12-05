@@ -9,7 +9,7 @@ const WalletConnectButton = ({size}:any) => {
     const { address, isConnecting, isDisconnected } = useAccount()
   return (
     <Fragment>
-        <Button color='primary' size={size} onClick={() => open()}>
+        <Button color='gradient' size={size} onClick={() => open()}>
             {address ? truncate(address,13): "Connect Wallet"}
           </Button>
     </Fragment>
