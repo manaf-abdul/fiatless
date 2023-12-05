@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Fragment } from 'react'
 import PageHeader from '@/components/PageHeader';
-import { Input,Button, Col, Grid, Progress, Row, Spacer, Text, useInput } from '@nextui-org/react';
+import { Input, Button, Col, Grid, Progress, Row, Spacer, Text, useInput } from '@nextui-org/react';
 import { Input as CustomInput, Popover, Radio, Modal, message, Typography, Alert } from "antd";
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
@@ -58,7 +58,7 @@ const Buy = () => {
   const [stripePromise, setStripePromise] = useState<any>(null);
   const [loading, setLoading] = useState<Boolean>(false);
   const [userAddress, setUserAddress] = useState('');
-  const [amount, setAmount] = useState<any>(100);
+  const [amount, setAmount] = useState<any>(101);
 
 
   async function loadData() {
@@ -88,12 +88,12 @@ const Buy = () => {
     setStep(e)
   }
   function modifyToken(i: any) {
-    const token=tokenList[i]
-    if(token.ticker==="USDT"){
- // setPrices(null);
-    // setTokenOneAmount(null);
-    // setTokenTwoAmount(null);
-    // if (changeToken === 1) {
+    const token = tokenList[i]
+    if (token.ticker === "USDT") {
+      // setPrices(null);
+      // setTokenOneAmount(null);
+      // setTokenTwoAmount(null);
+      // if (changeToken === 1) {
       setTokenOne(tokenList[i]);
       // fetchPrices(tokenList[i].address, tokenTwo.address)
       // } else {
@@ -104,7 +104,7 @@ const Buy = () => {
     }
   }
 
-  const amountHandler=(e:any)=>{
+  const amountHandler = (e: any) => {
     setAmount(e.target.value)
 
   }
@@ -124,17 +124,17 @@ const Buy = () => {
         onCancel={() => setIsOpen(false)}
         title="Select a token"
         // className='modalList'
-        style={{background:"black"}}
+        style={{ background: "black" }}
         centered
       >
-        
+
         <div className="modalContent">
           {tokenList?.map((e, i) => {
             return (
               <div
                 className="tokenChoice"
-                style={{cursor:e.ticker!=="USDT" ? "not-allowed":"pointer"}}
-                aria-disabled={e.ticker==="USDT"}
+                style={{ cursor: e.ticker !== "USDT" ? "not-allowed" : "pointer" }}
+                aria-disabled={e.ticker === "USDT"}
                 key={i}
                 onClick={() => modifyToken(i)}
               >
@@ -152,23 +152,23 @@ const Buy = () => {
         <Col span={12} >
           <div className="inputs">
             <CustomInput
-            type='number'
+              type='number'
               placeholder="0"
               value={amount}
               onChange={amountHandler}
-              style={{ height: "6rem", fontSize: "xx-large",color:"white",background:"black" }}
+              style={{ height: "6rem", fontSize: "xx-large", color: "white", background: "black" }}
             />
             <CustomInput placeholder="0"
-              value={Number(amount)+(Number(amount)*3/100)} 
+              value={Number(amount) + (Number(amount) * 3 / 100)}
               disabled={true}
-              style={{ height: "6rem", color: "white", fontSize: "xx-large",background:"#11151d" }}
+              style={{ height: "6rem", color: "white", fontSize: "xx-large", background: "#11151d" }}
             />
             <div className="switchButton"
             >
               <ArrowDownOutlined rev={""} className="switchArrow" />
             </div>
             <div className="assetOne" onClick={() => openModal(1)}>
-              <img src={tokenOne?.img} alt="assetOneLogo" className="assetLogo"/>
+              <img src={tokenOne?.img} alt="assetOneLogo" className="assetLogo" />
               {tokenOne?.ticker}
               <DownOutlined rev={"ok"} />
             </div>
@@ -178,10 +178,12 @@ const Buy = () => {
               <DownOutlined rev={"ok"} />
             </div>
           </div>
+          <Spacer y={0.2} />
+          {amount <= 100 && <Text color='error'>Please enter an amount greater than 100</Text>}
         </Col>
       </Row>
         <Spacer y={1.8} />
-        <Button 
+        <Button
           disabled={!validateAmount(amount)}
           color="gradient"
           css={{ width: "100%" }} onClick={() => stepHandler(1)}>
@@ -192,7 +194,7 @@ const Buy = () => {
       {step === 1 && <>
         <Row>
           <Col span={1} onClick={() => setStep(0)}>
-            <ArrowLeftOutlined rev={""} style={{color:"#ba59d9"}}/>
+            <ArrowLeftOutlined rev={""} style={{ color: "#ba59d9" }} />
           </Col>
           <Col css={{ display: "flex", justifyContent: "center" }} span={11}>
             <Text h4 color="primary">Details</Text>
@@ -204,7 +206,7 @@ const Buy = () => {
           <Col span={12} css={{ display: 'flex', flexDirection: "column", justifyContent: "center" }}>
             {!address && <WalletConnectButton size="lg" />}
             {address &&
-              <Button color='gradient' style={{ width: "100%",color:"white" }} onClick={() => stepHandler(2)}>
+              <Button color='gradient' style={{ width: "100%", color: "white" }} onClick={() => stepHandler(2)}>
                 Proceed with Connected Wallet
               </Button>
             }
@@ -247,7 +249,7 @@ const Buy = () => {
       {step === 2 && <>
         <Row>
           <Col span={1} onClick={() => setStep(1)}>
-            <ArrowLeftOutlined rev={""} style={{color:"#ba59d9"}}/>
+            <ArrowLeftOutlined rev={""} style={{ color: "#ba59d9" }} />
           </Col>
           <Col css={{ display: "flex", justifyContent: "center" }} span={11}>
             <Text h4 color="gradient">PAYMENT</Text>
@@ -290,7 +292,7 @@ const Buy = () => {
             </Typography>
           </Row>
           : ""}
-          <CheckCircleOutlined rev={""} style={{ fontSize: "10rem", width: "100%" }} color='success'/>
+        <CheckCircleOutlined rev={""} style={{ fontSize: "10rem", width: "100%" }} color='success' />
         <Button color="success" css={{ width: "100%" }} onClick={() => stepHandler(0)}>
           Go Back
         </Button>
