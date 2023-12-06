@@ -121,7 +121,7 @@ function CheckoutForm({ value, currency, setStep,toAddres,setHash }: any) {
         style: {
             base: {
                 fontSize: '18px',
-                color: 'black',
+                color: 'white',
                 '::placeholder': {
                     color: '#aab7c4',
                 },
